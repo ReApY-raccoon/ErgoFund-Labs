@@ -1,8 +1,21 @@
-# Wiki source files
+# Wiki source (`docs/wiki`)
 
-These Markdown files are the **source** for the [GitHub Wiki](https://github.com/Aahilmak786/ErgoFund-Labs/wiki). Enable Wikis under repository **Settings → Features**, then either:
+These files feed the [GitHub Wiki](https://github.com/Aahilmak786/ErgoFund-Labs/wiki).
 
-1. Copy each file into the wiki UI, or  
-2. Use `.github/workflows/wiki-sync.yml` with a token that can push to `https://github.com/Aahilmak786/ErgoFund-Labs.wiki.git`.
+## Automatic sync
 
-Keep this folder in sync with substantive doc changes on `main`.
+Workflow **Wiki sync** (`.github/workflows/wiki-sync.yml`) runs on **every push to `main`** and on **workflow_dispatch**. Add a repository secret:
+
+- **`WIKI_PUSH_TOKEN`** — GitHub PAT with **wiki** write access (or classic `repo` scope). The workflow clones `https://github.com/Aahilmak786/ErgoFund-Labs.wiki.git` and copies all `*.md` here except this `README.md`.
+
+Enable **Wikis** under repo **Settings → General → Features**.
+
+## Pages
+
+| File | Wiki tab |
+| --- | --- |
+| `Home.md` | Home |
+| `_Sidebar.md` | Sidebar |
+| `Project-layout.md`, `Working-output-and-smoke-tests.md`, … | Linked from Home / sidebar |
+
+Use `[[Page-name]]` links (matches filename without `.md`).

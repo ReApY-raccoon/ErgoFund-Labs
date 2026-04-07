@@ -25,10 +25,10 @@ Schema: `apps/backend/db/init.sql` · seed: `apps/backend/db/02-seed.sql`.
 
 ## Netlify (frontend)
 
-1. Create a site from the same GitHub repo.
-2. Netlify reads **`netlify.toml`** at the repo root; `NETLIFY=true` selects **@sveltejs/adapter-netlify**.
-3. Set **`PUBLIC_API_URL`** in Netlify environment variables.
-4. Align API **CORS** with your Netlify URL.
+Step-by-step for your team dashboard: **[[Netlify-setup]]** ([Netlify projects](https://app.netlify.com/teams/aahilmak318/projects)).
+
+1. Import **GitHub** → `Aahilmak786/ErgoFund-Labs`; use root **`netlify.toml`**.
+2. Set **`PUBLIC_API_URL`** to your live API; set API **`CORS_ORIGIN`** to your `*.netlify.app` URL.
 
 ## Render (API + Postgres)
 

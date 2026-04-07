@@ -1,5 +1,6 @@
-# SvelteKit stays on Netlify via @sveltejs/adapter-netlify (NETLIFY=true during build).
-# Repository root = Netlify site root.
+# SvelteKit + @sveltejs/adapter-netlify (NETLIFY=true). Repo root = site root.
+# Dashboard: https://app.netlify.com/teams/aahilmak318/projects — Import from GitHub → this repo.
+# Set PUBLIC_API_URL in Netlify UI to your deployed API; set CORS on the API to your *.netlify.app URL.
 [build]
   publish = "apps/frontend/build"
   command = "npm --prefix packages/sdk ci && npm --prefix packages/sdk run build && npm --prefix apps/frontend ci && npm --prefix apps/frontend run build"
@@ -7,3 +8,8 @@
 [build.environment]
   NODE_VERSION = "20"
   NETLIFY = "true"
+
+# Serverless output from the adapter (path relative to repo root).
+[functions]
+  directory = "apps/frontend/.netlify/functions-internal"
+  node_bundler = "esbuild"

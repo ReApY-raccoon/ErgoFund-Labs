@@ -1,0 +1,52 @@
+name: Deploy frontend to Netlify
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/frontend/**'
+      - 'packages/sdk/**'
+      - 'netlify.toml'
+      - '.github/workflows/netlify-deploy.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: netlify-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: |
+            packages/sdk/package-lock.json
+            apps/frontend/package-lock.json
+
+      - name: Build SDK and SvelteKit (Netlify adapter)
+        env:
+          NETLIFY: 'true'
+        run: |
+          npm --prefix packages/sdk ci
+          npm --prefix packages/sdk run build
+          npm --prefix apps/frontend ci
+          npm --prefix apps/frontend run build
+
+      - name: Deploy to Netlify (optional)
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "${NETLIFY_AUTH_TOKEN}" ] || [ -z "${NETLIFY_SITE_ID}" ]; then
+            echo "Skipping Netlify CLI deploy: set NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID in repo Secrets."
+            exit 0
+          fi
+          DEPLOY_ARGS=(--prod --dir=apps/frontend/build --site="${NETLIFY_SITE_ID}" --auth="${NETLIFY_AUTH_TOKEN}")
+          FN="apps/frontend/.netlify/functions-internal"
+          if [ -d "$FN" ]; then DEPLOY_ARGS+=(--functions="$FN"); fi
+          npx --yes netlify-cli@17 deploy "${DEPLOY_ARGS[@]}"

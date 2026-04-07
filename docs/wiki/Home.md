@@ -1,21 +1,29 @@
 # Home
 
-Welcome to the **ErgoFund-Labs** wiki ([BenefactionPlatform-Ergo](https://github.com/Aahilmak786/ErgoFund-Labs)).
+Welcome to the **ErgoFund-Labs** wiki — **[BenefactionPlatform-Ergo](https://github.com/Aahilmak786/ErgoFund-Labs)** on Ergo.
 
-This project expands **fundraising on Ergo** with multi-token support, wallet integration (Fleet SDK), a REST API with PostgreSQL, a SvelteKit frontend, and ErgoScript contracts.
+## What this is
 
-## Quick links
+A **fundraising platform** stack: **SvelteKit** UI, **Node/Express** API, **PostgreSQL**, **Fleet SDK** wallets, **ErgoScript** contracts. Multi-token campaigns, referrals with server-side checks, and analytics.
 
-- [[Deployment]] — Docker Compose, Render, and frontend hosting
-- [[Development-setup]] — local API, UI, and database
-- [[Architecture]] — stack and data flow
-- [[API-Reference]] — HTTP endpoints
-- [[Example-API-output]] — sample JSON from a running backend
+## Wiki map (full project)
 
-## Repository
+| Page | Contents |
+| --- | --- |
+| [[Project-layout]] | Repository tree and flows |
+| [[Development-setup]] | Local API, UI, database |
+| [[Working-output-and-smoke-tests]] | **Working output**: curl, Docker, `test-api.mjs`, UI checks |
+| [[API-Reference]] | HTTP endpoints (links to repo `docs/API.md`) |
+| [[Example-API-output]] | Sample JSON bodies |
+| [[Architecture]] | Runtime and data model |
+| [[Deployment]] | Docker, Render, Vercel, env vars |
+| [[Hosting-platforms]] | Vercel, Netlify, Render, Railway, Fly, DO, Firebase |
+| [[Netlify-setup]] | **Netlify team** deploy: [aahilmak318 projects](https://app.netlify.com/teams/aahilmak318/projects) |
+
+## Quick links (repo)
 
 - **Code:** [github.com/Aahilmak786/ErgoFund-Labs](https://github.com/Aahilmak786/ErgoFund-Labs)
-- **Issues & PRs:** use GitHub on the repo above
+- **Issues / PRs:** same repository
 
 ## License
 

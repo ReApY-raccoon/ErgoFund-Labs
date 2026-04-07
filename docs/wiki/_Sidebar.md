@@ -1,10 +1,12 @@
-**Wiki**
+**ErgoFund-Labs Wiki**
 
 - [[Home]]
-- [[Deployment]]
+- [[Project-layout]]
+- [[Working-output-and-smoke-tests]]
 - [[Development-setup]]
-- [[Architecture]]
 - [[API-Reference]]
 - [[Example-API-output]]
-
-See also **Deployment** for Vercel, Netlify, Render, Railway, Fly.io, and Docker.
+- [[Architecture]]
+- [[Deployment]]
+- [[Hosting-platforms]]
+- [[Netlify-setup]]
