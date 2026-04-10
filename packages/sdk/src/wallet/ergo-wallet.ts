@@ -13,5 +13,5 @@ export async function connectErgoWallet(): Promise<WalletSession> {
   const addrs = await w.ergo.get_used_addresses();
   const address = addrs[0];
   if (!address) throw new Error('No Ergo address from wallet');
-  return { walletId: 'ergo-wallet', address, connected: true };
+  return { walletId: 'ergo-wallet', address, connected: true, displayLabel: 'Ergo Wallet' };
 }

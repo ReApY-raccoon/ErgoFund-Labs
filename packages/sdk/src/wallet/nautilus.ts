@@ -9,5 +9,5 @@ export async function connectNautilus(): Promise<WalletSession> {
   const addrs = await w.ergo.get_used_addresses();
   const address = addrs[0];
   if (!address) throw new Error('No Ergo address from wallet');
-  return { walletId: 'nautilus', address, connected: true };
+  return { walletId: 'nautilus', address, connected: true, displayLabel: 'Nautilus' };
 }

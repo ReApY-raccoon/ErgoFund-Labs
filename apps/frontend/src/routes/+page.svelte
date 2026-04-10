@@ -17,7 +17,10 @@
   </article>
   <article class="card">
     <h2>Wallets</h2>
-    <p class="muted">Nautilus and Ergo Wallet flows with clear error handling.</p>
+    <p class="muted">
+      Nautilus, Ergo Wallet, and SafePal (DApp browser). Connected addresses open a detail panel with
+      explorer and help links.
+    </p>
   </article>
   <article class="card">
     <h2>Referrals</h2>

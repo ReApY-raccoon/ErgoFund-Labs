@@ -9,7 +9,4 @@
   NODE_VERSION = "20"
   NETLIFY = "true"
 
-# Serverless output from the adapter (path relative to repo root).
-[functions]
-  directory = "apps/frontend/.netlify/functions-internal"
-  node_bundler = "esbuild"
+# Let @sveltejs/adapter-netlify emit functions + redirects during build (avoid manual path drift).
