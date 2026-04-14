@@ -7,6 +7,10 @@ export function createAnalyticsController(service: AnalyticsService) {
     summary: asyncHandler(async (_req: Request, res: Response) => {
       const data = await service.summary();
       res.json(data);
+    }),
+    get: asyncHandler(async (_req: Request, res: Response) => {
+      const data = await service.dashboard();
+      res.json(data);
     })
   };
 }
