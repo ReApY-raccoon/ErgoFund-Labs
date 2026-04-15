@@ -11,7 +11,6 @@
 
   function labelFor(id: string): string {
     if (id === 'nautilus') return 'Nautilus';
-    if (id === 'safepal') return 'SafePal';
     return 'Ergo Wallet';
   }
 
@@ -34,12 +33,6 @@
       >×</button
     >
   </div>
-  {#if session.readOnly}
-    <p class="readonly-note" role="status">
-      <strong>Read-only.</strong> This address was pasted from SafePal Receive. For signing transactions in the
-      browser, use <strong>SafePal → Browser</strong> or install <strong>Nautilus</strong>.
-    </p>
-  {/if}
   <p class="muted small">Connected Ergo address</p>
   <div class="addr-box">
     <code class="full-addr">{session.address}</code>
@@ -61,14 +54,6 @@
         <a href={WALLET_LINKS.ergoWallets} target="_blank" rel="noopener noreferrer"
           >Ergo official wallets overview</a
         >
-      </li>
-      <li>
-        <a href={WALLET_LINKS.safepalHome} target="_blank" rel="noopener noreferrer">SafePal</a>
-        —
-        <a href={WALLET_LINKS.safepalDownload} target="_blank" rel="noopener noreferrer"
-          >Download apps</a
-        >
-        <span class="muted small"> (open the dApp in SafePal’s browser for Ergo)</span>
       </li>
     </ul>
   </section>
@@ -106,15 +91,6 @@
     justify-content: space-between;
     gap: 0.5rem;
     margin-bottom: 0.75rem;
-  }
-  .readonly-note {
-    font-size: 0.82rem;
-    line-height: 1.45;
-    padding: 0.55rem 0.65rem;
-    border-radius: 10px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    margin: 0 0 0.75rem;
   }
   .panel-head h2 {
     margin: 0;

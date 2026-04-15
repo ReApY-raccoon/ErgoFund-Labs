@@ -19,7 +19,7 @@
     message = null;
     if (!referrerAddr) {
       message =
-        'Connect a wallet with the header (Nautilus, Ergo Wallet, or SafePal in-app), or paste your Ergo address in the demo field below.';
+        'Connect a wallet with the header (Nautilus or Ergo Wallet), or paste your Ergo address in the demo field below.';
       return;
     }
     if (!isLikelyErgoAddress(referrerAddr)) {
@@ -71,8 +71,8 @@
   <section class="card hint">
     <h2>No wallet connected</h2>
     <p class="muted">
-      Install <strong>Nautilus</strong> for Chrome/Firefox, or use <strong>SafePal</strong> → Browser → Ergo, then use
-      the header buttons. Or paste your Ergo address below for API testing only.
+      Install <strong>Nautilus</strong> for Chrome/Firefox or connect with <strong>Ergo Wallet</strong> via the header
+      buttons. Or paste your Ergo address below for API testing only.
     </p>
     <label for="manual-ref">Your Ergo address (demo, if not using a browser wallet)</label>
     <input

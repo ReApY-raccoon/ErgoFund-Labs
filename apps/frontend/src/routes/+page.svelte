@@ -18,8 +18,7 @@
   <article class="card">
     <h2>Wallets</h2>
     <p class="muted">
-      Nautilus, Ergo Wallet, and SafePal (DApp browser). Connected addresses open a detail panel with
-      explorer and help links.
+      Nautilus and Ergo Wallet support. Connected addresses open a detail panel with explorer and help links.
     </p>
   </article>
   <article class="card">
