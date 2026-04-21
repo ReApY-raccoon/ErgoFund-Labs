@@ -52,12 +52,12 @@ npm --prefix apps/frontend install
 npm --prefix apps/frontend run dev
 ```
 
-The Vite dev server proxies `/api` and `/health` to `http://127.0.0.1:8080`.
+The Vite dev server proxies `/api` and `/health` to `http://127.0.0.1` and the **`PORT`** value in the repo root `.env` (defaults to `8080` if unset).
 
 ## 4. Verify
 
 - Open `http://localhost:5173`
-- `curl http://localhost:8080/health`
+- `curl http://localhost:8080/health` (or your `PORT`, e.g. `8081`)
 
 ## 5. API smoke script
 
