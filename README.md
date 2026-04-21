@@ -63,7 +63,16 @@ npm --prefix apps/frontend install
 npm --prefix packages/sdk run build
 ```
 
-**Dev (two terminals):** `npm run dev:backend` · `npm run dev:frontend` — UI at `http://localhost:5173` (Vite proxies `/api` to `:8080`).
+**Database (Docker):** start Postgres, then seed dummy campaigns (requires Docker Desktop).
+
+```bash
+docker compose -f infra/docker-compose.yml up -d db
+npm run db:seed
+```
+
+Ensure root `.env` sets `DATABASE_URL` (see `.env.example`; default is `localhost:5432` with user/db `bene`).
+
+**Dev (two terminals):** `npm run dev:backend` · `npm run dev:frontend` — UI at `http://localhost:5173` (Vite proxies `/api` to `:8080`). The backend loads both the repo root `.env` and `apps/backend/.env`.
 
 See **[ARCHITECTURE.md](./ARCHITECTURE.md)** for UTXO flow, token model, and referral notes.
 

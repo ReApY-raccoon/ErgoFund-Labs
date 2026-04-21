@@ -11,7 +11,7 @@
 cp .env.example .env
 ```
 
-Set `DATABASE_URL` for the backend (e.g. `postgresql://bene:bene@localhost:5432/bene`).
+Root `.env` should define `DATABASE_URL` (see repo `.env.example`). The backend also reads `apps/backend/.env` if you keep secrets there.
 
 ## 2. Database
 
@@ -20,11 +20,24 @@ psql -U bene -d bene -f apps/backend/db/init.sql
 psql -U bene -d bene -f apps/backend/db/02-seed.sql
 ```
 
-Or use `npm run docker:up` and rely on Compose init scripts.
+Or use Docker for Postgres only:
+
+```bash
+docker compose -f infra/docker-compose.yml up -d db
+npm run db:seed
+```
+
+Or use `npm run docker:up` and rely on Compose init scripts (first boot only). After that, re-run `npm run db:seed` to reset or refresh seed data.
 
 ## 3. Run services
 
 **Terminal A — backend**
+
+```bash
+npm run dev:backend
+```
+
+Or from the backend package only:
 
 ```bash
 npm --prefix apps/backend install
